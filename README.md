@@ -1,8 +1,17 @@
 # strmtst
 
-[![Hackage](https://img.shields.io/hackage/v/strmtst.svg)](https://hackage.haskell.org/package/strmtst)
-[![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Stackage Lts](http://stackage.org/package/strmtst/badge/lts)](http://stackage.org/lts/package/strmtst)
-[![Stackage Nightly](http://stackage.org/package/strmtst/badge/nightly)](http://stackage.org/nightly/package/strmtst)
+## to replicate:
 
-See README for more info
+```console
+wget https://cs.fit.edu/~mmahoney/compression/enwik8.bz2
+```
+
+Edit the file path in `app/Main.hs` to point to the above file.
+
+```console
+$ stack build && stack exec strmtst
+[...]
+strmtst: unreachable state
+CallStack (from HasCallStack):
+  error, called at src/Streamly/Streams/StreamD.hs:3581:22 in streamly-0.6.1-JxXNzc4ZVeh50nx7ez5AYt:Streamly.Streams.StreamD
+```
