@@ -43,28 +43,7 @@ import qualified Data.Set as Set
 import Data.Maybe
 import           System.IO                       (IOMode (..), openFile)
 
--- | Class representing a streaming interface for batches of data
--- following the conventionl tuple of (features, target), ('X d', 'Y d')
--- N.B.  Nothing stops one from making batches different sizes
---
--- class (IsStream t, Monad (t m), Monad m) => Dataloader d t m where
---     type Batch d
---     numBatches :: m Int
---     -- Total number of batches
---     allBatches ::  t m (Batch d)
---     allBatches = joinly $ do
---         nb <- numBatches @d @t
---         return $ streamBatches @d [1..nb]
---     streamBatch::  Int -> t m (Batch d)
---     -- stream of one batch
---     streamBatches :: [Int] -> t m (Batch d)
---     -- stream of many batches
---     streamBatches = S.concatMapM go . S.fromList
---         where
---             go n = do
---                 let s = streamBatch @d n
---                 return s
---     {-# MINIMAL numBatches , streamBatch #-}
+enwiki8FP = [absfile|/Users/timpierson/arity/hasktorch/examples/static-lstm/data/enwik8.bz2|]
 
 {-# INLINE tshow #-}
 tshow :: Show a => a -> Text
@@ -179,7 +158,7 @@ kitAndKaboodle = S.drain . serially . aheadly $ batch
             return (toOneHot x, y)
             ) cycleData
     data'
-        = [absfile|/Users/timpierson/arity/hasktorch/examples/static-lstm/data/enwik8.bz2|]
+        = enwiki8FP
     cycleData :: (MonadAsync m) => AheadT m (StrictTuple Char)
     cycleData = (lockAndLoad data')  -- <> cycleData
 
