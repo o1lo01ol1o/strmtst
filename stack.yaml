@@ -1,0 +1,8 @@
+resolver: lts-14.7
+
+ghc-options:
+  "$locals": -fhide-source-paths
+
+extra-deps:
+- git: https://github.com/composewell/streamly
+  commit: b1c1b1880a8b5c9269b1a0d4624444f595836de0

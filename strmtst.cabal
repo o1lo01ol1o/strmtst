@@ -1,0 +1,49 @@
+cabal-version:       2.0
+name:                strmtst
+version:             0.0.0
+synopsis:            See README for more info
+description:         See README for more info
+license:             MIT
+license-file:        LICENSE
+author:              o1lo01ol1o
+maintainer:          tim.pierson@gmail.com
+copyright:           2019 o1lo01ol1o
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+tested-with:         GHC == 8.6.4
+
+executable strmtst
+  hs-source-dirs:      app
+  main-is:             Main.hs
+
+  build-depends:       base ^>= 4.12.0.0
+                     , containers
+                     , exceptions
+                     , monad-control
+                     , mtl
+                     , path
+                     , random >= 1.1
+                     , safe-exceptions
+                     , streamly
+                     , text 
+                     , transformers-base
+                     , bytestring 
+                     , bzlib
+                     
+                     
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+
+  default-language:    Haskell2010
